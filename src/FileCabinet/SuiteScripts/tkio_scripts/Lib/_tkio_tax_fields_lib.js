@@ -191,9 +191,27 @@ define(['N/log', 'N/search'],
 
             return objcodigosMainFull;
         }
+        const getLineDiscountItems=(rcrd_transaccion)=>{
+            try{
+                var discount_items=[];
+                var item_type=rcrd_transacciongetSublistValue({
+                    sublistId: 'item',
+                    fieldId: 'itemtype',
+                    line: index
+                });
+                if(item_type=='Discount'){
+                    discount_items.push({
+                        amount
+                    })
+                }
+            
+            }catch(err){
+            log.error({title:'Error occurred in getLineDiscountItems',details:err});
+            }
+        }
 
 
 
-        return { getTaxConfigurations,obtenObjImpuesto }
+        return { getTaxConfigurations,obtenObjImpuesto,getLineDiscountItems }
 
     });
